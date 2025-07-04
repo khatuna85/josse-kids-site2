@@ -160,6 +160,95 @@
     <button class="nav-btn" onclick="location.href='#videos'">🎥 ვიდეოები და გასაფერადებლები</button>
     <button class="nav-btn" onclick="location.href='#learn'">📚 შეისწავლე ჟოზესთან ერთად</button>
   </nav>
+  
+<section id="songs">
+  <h2>🎵 ჟოზეს სიმღერები</h2>
+  <p>აირჩიე სასურველი სიმღერა და მოუსმინე:</p>
+
+  <!-- SoundCloud ღილაკები -->
+  <div class="game-buttons">
+    <button onclick="showSoundCloud('soundcloudNewYear')">❄️ საახალწლო</button>
+    <button onclick="showSoundCloud('soundcloudMeShe')">🌸 მე და შენ</button>
+    <button onclick="showSoundCloud('soundcloudDalageba')">🎶 დალაგება</button>
+    <button onclick="showSoundCloud('soundcloudGeorgia')">🌸 სიმღერა საქართველოზე</button>
+    <button onclick="showSoundCloud('soundcloudBirthday')">☀️ დაბადების დღე</button>
+    <button onclick="showSoundCloud('soundcloudSeasons')">🍂 წელიწადის დროები</button>
+  </div>
+
+  <!-- MP3 ფლეერი (თუ დაგჭირდება) -->
+  <audio id="audioPlayer" controls style="margin: 20px auto; display: block; max-width: 400px;"></audio>
+
+  <!-- SoundCloud ფლეერები -->
+  <div id="soundcloudNewYear" class="soundcloud-block" style="display: none; margin-top: 30px;">
+    <h3 style="text-align: center;">🎄 ჟოზე - საახალწლო</h3>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/blr1arxtkkm1/sets/kpenktcasn4f&color=%236ab04c&auto_play=true"
+      style="border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: block; margin: 0 auto;">
+    </iframe>
+  </div>
+
+  <div id="soundcloudMeShe" class="soundcloud-block" style="display: none; margin-top: 30px;">
+    <h3 style="text-align: center;">💕 ჟოზე და ჟოზეფინა - მე და შენ</h3>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/2164546/2-1-joze&color=%236ab04c&auto_play=true"
+      style="border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: block; margin: 0 auto;">
+    </iframe>
+  </div>
+
+  <div id="soundcloudDalageba" class="soundcloud-block" style="display: none; margin-top: 30px;">
+    <h3 style="text-align: center;">🧹 ჟოზე - დალაგება</h3>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/2164546/joze-1&color=%236ab04c&auto_play=true"
+      style="border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: block; margin: 0 auto;">
+    </iframe>
+  </div>
+
+  <div id="soundcloudGeorgia" class="soundcloud-block" style="display: none; margin-top: 30px;">
+    <h3 style="text-align: center;">🇬🇪 ჟოზე - სიმღერა საქართველოზე</h3>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/2164546/joze-2&color=%236ab04c&auto_play=true"
+      style="border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: block; margin: 0 auto;">
+    </iframe>
+  </div>
+
+  <div id="soundcloudBirthday" class="soundcloud-block" style="display: none; margin-top: 30px;">
+    <h3 style="text-align: center;">🎂 ჟოზე - დაბადების დღე</h3>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/2164546/1-10joze-birthday&color=%236ab04c&auto_play=true"
+      style="border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: block; margin: 0 auto;">
+    </iframe>
+  </div>
+
+  <div id="soundcloudSeasons" class="soundcloud-block" style="display: none; margin-top: 30px;">
+    <h3 style="text-align: center;">🌦️ ჟოზე - წელიწადის დროები</h3>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/2164546/joze&color=%236ab04c&auto_play=true"
+      style="border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: block; margin: 0 auto;">
+    </iframe>
+  </div>
+</section>
+
+<!-- JS -->
+<script>
+  function showSoundCloud(id) {
+    // გაჩერე MP3 ფლეერი
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (audioPlayer) {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+    }
+
+    // დამალე ყველა SoundCloud ფლეერი
+    document.querySelectorAll('.soundcloud-block').forEach(el => el.style.display = 'none');
+
+    // აჩვენე არჩეული
+    const block = document.getElementById(id);
+    if (block) block.style.display = 'block';
+  }
+</script>
+
+
+
 
   <main>
     <section id="characters">
@@ -204,7 +293,7 @@
         <div class="coloring-item">
           <img src="https://kraski-raskraski.ru/wp-content/uploads/2024/06/raskraski-kot-72.jpg" alt="კატა" />
           <p>🖍 გააფერადე!</p>
-          <a href="https://kraski-raskraski.ru/wp-content/uploads/2024/06/raskraski-kot-72.jpg" download>⬇️ ჩამოტვირთე</a>
+          <a href="file:///https://kraski-raskraski.ru/wp-content/uploads/2024/06/raskraski-kot-72.jpg" download>⬇️ ჩამოტვირთე</a>
         </div>
         <div class="coloring-item">
           <img src="https://coloring.otk7.com/admin/uploads_n/uploads/5/7/1//44175.jpg" alt="დათვი" />
@@ -239,5 +328,6 @@
   </footer>
 </body>
 </html>
+
 
 
